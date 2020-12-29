@@ -26,11 +26,8 @@ if not os.path.isdir(config_directory):
 
     sys.exit(1)
 
-# If config_directory/avg does not exist, create it
-if not os.path.isdir(f"{config_directory}/avg"):
-    subprocess.run(["mkdir", f"{config_directory}/avg"])
-
 # If config_director/avg/trackers does not exist, create it
+# mkdir without -p will raise an error if config_directory/avg doesn't exist first
 if not os.path.isdir("f{config_directory}/avg/trackers"):
-    subprocess.run(["mkdir", f"{config_directory}/avg/trackers"])
+    subprocess.run(["mkdir", "-p", f"{config_directory}/avg/trackers"])
 
