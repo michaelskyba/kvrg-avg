@@ -2,6 +2,7 @@
 
 import os
 import sys
+import subprocess
 
 try:
     # Change the next line if your config folder is not $HOME/.config
@@ -24,4 +25,8 @@ if not os.path.isdir(config_directory):
     print("See README.md on github (https://github.com/michaelskyba/kvrg-avg) for more information.")
 
     sys.exit(1)
+
+# If config_directory/avg does not exist, create it
+if not os.path.isdir(f"{config_directory}/avg"):
+    subprocess.run(["mkdir", f"{config_directory}/avg"])
 
