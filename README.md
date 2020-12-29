@@ -1,3 +1,5 @@
+
+
 # kvrg-avg
 A command line utility written in Python for keeping track of central values
 
@@ -23,3 +25,11 @@ to
 config_directory = "<your config directory>"
 ```
 Do not end your directory with a forward slash.
+
+## Usage
+
+ -  ``avg create "<name>" ["<description>"]``
+Creates a new tracker called ``<name>`` with an optional description of ``<description>``.
+
+- ``avg list``
+Lists the names of trackers and their average values. This is a human-readable format; please do not attempt to pipe it into something else. If you are calling kvrg-avg as part of a script (Why am I even writing this? Nobody will see this, let alone use it in a script), use ``avg get`` instead. Typing ``avg`` by itself is the same as ``avg list``.
