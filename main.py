@@ -31,3 +31,22 @@ if not os.path.isdir(config_directory):
 if not os.path.isdir("f{config_directory}/avg/trackers"):
     subprocess.run(["mkdir", "-p", f"{config_directory}/avg/trackers"])
 
+# Starts checking for command-line arguments
+
+# You ran "avg" without any extra arguments, or you ran "avg list"
+# running something like "avg list foo bar" is the same
+if len(sys.argv) == 1 or sys.argv[1] == "list":
+
+    # Get the tracker names by looking in config/avg/trackers
+    tracker_names = os.listdir(f"{config_directory}/avg/trackers")
+
+    # Alert the user if they have no trackers
+    if not tracker_names:
+        print("You have no trackers.")
+        print("Use 'avg create \"<name>\" [\"<description>\"]' to create one.")
+
+    # Print the tracker names and their average values, if the user has a tracker
+    else:
+        for tracker in tracker_names:
+            print(f"{tracker} - TODO")
+
