@@ -52,3 +52,7 @@ if len(sys.argv) == 1 or sys.argv[1] == "list":
             print(f"{tracker} - TODO")
         sys.exit(0)
 
+# Invalid command
+print(f"'{sys.argv[1]}' is not a kvrg-avg command. See the README for a list of valid commands.")
+sys.exit(1)
+
