@@ -44,9 +44,11 @@ if len(sys.argv) == 1 or sys.argv[1] == "list":
     if not tracker_names:
         print("You have no trackers.")
         print("Use 'avg create \"<name>\" [\"<description>\"]' to create one.")
+        sys.exit(1)
 
     # Print the tracker names and their average values, if the user has a tracker
     else:
         for tracker in tracker_names:
             print(f"{tracker} - TODO")
+        sys.exit(0)
 
