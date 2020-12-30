@@ -8,7 +8,7 @@ try:
     # Change the next line if your config folder is not $HOME/.config
     config_directory = f"{os.environ['HOME']}/.config"
 
-    # If $HOME isn't set, os.environ['HOME'] will cause an error We need to tell the user to change the directory
+    # If $HOME isn't set, os.environ['HOME'] will cause an error
 
 except KeyError:
     print("The environment variable $HOME is not set.")
@@ -60,7 +60,17 @@ if sys.argv[1] == "create":
 
     # Create a file with name <name> in config/avg/trackers
     tracker_file = open(f"{config_directory}/avg/trackers/{sys.argv[2]}", "w")
-    tracker_file.write("")
+
+    # Saves the description if the user provided one
+
+    # the description is the fourth argument, so the length has to be > 3 (>=4)
+    # and sys.argv[3] will get the fourth argument (3rd when not including "avg")
+    if len(sys.argv) > 3:
+        description = sys.argv[3]
+    else:
+        description = ""
+
+    tracker_file.write(description)
     tracker_file.close()
 
     sys.exit(0)
