@@ -8,8 +8,7 @@ try:
     # Change the next line if your config folder is not $HOME/.config
     config_directory = f"{os.environ['HOME']}/.config"
 
-    # If $HOME isn't set, os.environ['HOME'] will cause an error
-    # We need to tell the user to change the directory
+    # If $HOME isn't set, os.environ['HOME'] will cause an error We need to tell the user to change the directory
 
 except KeyError:
     print("The environment variable $HOME is not set.")
@@ -51,6 +50,20 @@ if len(sys.argv) == 1 or sys.argv[1] == "list":
         for tracker in tracker_names:
             print(f"{tracker} - TODO")
         sys.exit(0)
+
+# You ran "avg create ..."
+if sys.argv[1] == "create":
+    # If user runs "avg create"
+    if len(sys.argv) == 2:
+        print("You need a <name> argument.")
+        sys.exit(1)
+
+    # Create a file with name <name> in config/avg/trackers
+    tracker_file = open(f"{config_directory}/avg/trackers/{sys.argv[2]}", "w")
+    tracker_file.write("")
+    tracker_file.close()
+
+    sys.exit(0)
 
 # Invalid command
 print(f"'{sys.argv[1]}' is not a kvrg-avg command. See the README for a list of valid commands.")
