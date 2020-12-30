@@ -58,6 +58,11 @@ if sys.argv[1] == "create":
         print("You need a <name> argument.")
         sys.exit(1)
 
+    # Check if config/avg/trackers contains a tracker called <name>
+    if sys.argv[2] in os.listdir(f"{config_directory}/avg/trackers"):
+        print(f"Tracker with name '{sys.argv[2]}' already exists.")
+        sys.exit(1)
+
     # Create a file with name <name> in config/avg/trackers
     tracker_file = open(f"{config_directory}/avg/trackers/{sys.argv[2]}", "w")
 
