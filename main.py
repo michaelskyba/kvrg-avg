@@ -48,9 +48,8 @@ if len(sys.argv) == 1 or sys.argv[1] == "list":
     # Print the tracker names and their average values, if the user has a tracker
     else:
         for tracker in tracker_names:
-            tracker_file = open(f"{config_directory}/avg/trackers/{tracker}", "r")
-            print(f"{tracker} - {tracker_file.readlines()[1].strip()}")
-            tracker_file.close()
+            with open(f"{config_directory}/avg/trackers/{tracker}", "r") as tracker_file:
+                print(f"{tracker} - {tracker_file.readlines()[1].strip()}")
         sys.exit(0)
 
 # You ran "avg create ..."
@@ -66,19 +65,18 @@ if sys.argv[1] == "create":
         sys.exit(1)
 
     # Create a file with name <name> in config/avg/trackers
-    tracker_file = open(f"{config_directory}/avg/trackers/{sys.argv[2]}", "w")
+    with open(f"{config_directory}/avg/trackers/{sys.argv[2]}", "w") as tracker_file:
 
-    # Saves the description if the user provided one
+        # Saves the description if the user provided one
 
-    # the description is the fourth argument, so the length has to be > 3 (>=4)
-    # and sys.argv[3] will get the fourth argument (3rd when not including "avg")
-    if len(sys.argv) > 3:
-        description = sys.argv[3]
-    else:
-        description = "(No description)"
+        # the description is the fourth argument, so the length has to be > 3 (>=4)
+        # and sys.argv[3] will get the fourth argument (3rd when not including "avg")
+        if len(sys.argv) > 3:
+            description = sys.argv[3]
+        else:
+            description = "(No description)"
 
-    tracker_file.write(f"{description}\n0\n")
-    tracker_file.close()
+        tracker_file.write(f"{description}\n0\n")
 
     sys.exit(0)
 
