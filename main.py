@@ -110,6 +110,11 @@ if sys.argv[1] == "push":
         print("You need a <one or more values> argument.")
         sys.exit(1)
 
+    # Check if config/avg/trackers contains a tracker called <name>
+    if sys.argv[2] not in os.listdir(f"{config_directory}/avg/trackers"):
+        print(f"Tracker with name '{sys.argv[2]}' does not exist.")
+        sys.exit(1)
+
     sys.exit(0)
 
 # Invalid command
