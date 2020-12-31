@@ -73,11 +73,10 @@ if sys.argv[1] == "create":
     if len(sys.argv) > 3:
         description = sys.argv[3]
     else:
-        description = ""
+        description = "(No description)"
 
-    tracker_file.write(description)
+    tracker_file.write(f"{description}\n0\n")
     tracker_file.close()
-
     sys.exit(0)
 
 # You ran "avg delete ..."
