@@ -87,6 +87,9 @@ if sys.argv[1] == "delete":
         print("You need a <name> argument.")
         sys.exit(1)
 
+    # Removes the tracker file
+    os.remove(f"{config_directory}/avg/trackers/{sys.argv[2]}")
+
     sys.exit(0)
 
 # Invalid command
