@@ -124,6 +124,14 @@ if sys.argv[1] == "push":
                 print(f"Value '{argument}' is not a number.")
                 sys.exit(1)
 
+    # Appends values to tracker file
+    # A separate loop is used to avoid appending a few of the arguments before
+    # finding out one of them in invalid
+    for index, argument in enumerate(sys.argv):
+        if index > 2:
+            with open(f"{config_directory}/avg/trackers/{sys.argv[2]}", "a") as tracker_file:
+                tracker_file.write(f"{argument}\n")
+
     sys.exit(0)
 
 # Invalid command
