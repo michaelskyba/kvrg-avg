@@ -115,6 +115,15 @@ if sys.argv[1] == "push":
         print(f"Tracker with name '{sys.argv[2]}' does not exist.")
         sys.exit(1)
 
+    # Makes sure all values are numbers
+    for index, argument in enumerate(sys.argv):
+        if index > 2:
+            try:
+                float_argument = float(argument)
+            except ValueError:
+                print(f"Value '{argument}' is not a number.")
+                sys.exit(1)
+
     sys.exit(0)
 
 # Invalid command
