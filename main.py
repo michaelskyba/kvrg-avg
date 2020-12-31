@@ -80,6 +80,15 @@ if sys.argv[1] == "create":
 
     sys.exit(0)
 
+# You ran "avg delete ..."
+if sys.argv[1] == "delete":
+    # If user runs "avg delete"
+    if len(sys.argv) == 2:
+        print("You need a <name> argument.")
+        sys.exit(1)
+
+    sys.exit(0)
+
 # Invalid command
 print(f"'{sys.argv[1]}' is not a kvrg-avg command. See the README for a list of valid commands.")
 sys.exit(1)
