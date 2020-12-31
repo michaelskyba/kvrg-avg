@@ -28,11 +28,17 @@ Do not end your directory with a forward slash.
 
 ## Usage
 
- -  ``avg create "<name>" ["<description>"]``
-Creates a new tracker called ``<name>`` with an optional description of ``<description>``.
+ -  ``avg create "<name>" ["<description>"]``:
+Creates a new tracker called ``<name>`` with an optional description of
+``<description>``.
 
-- ``avg list``
-Lists the names of trackers and their average values. This is a human-readable format; please do not attempt to pipe it into something else. If you are calling kvrg-avg as part of a script (Why am I even writing this? Nobody will see this, let alone use it in a script), use ``avg get`` instead. Typing ``avg`` by itself is the same as ``avg list``.
+- ``avg list``:
+Lists the names of trackers and their average values. This is a human-readable
+format; please do not attempt to pipe it into something else. If you are
+calling kvrg-avg as part of a script (Why am I even writing this? Nobody will
+see this, let alone use it in a script), use ``avg get`` instead. Typing
+``avg`` by itself is the same as ``avg list``.
 
-- ``avg delete "<name>"``
-Delete the tracker called ``<name>``. There is no confirmation prompt, so once you run ``avg delete``, there is no way to reverse it.
+- ``avg delete "<name>"``:
+Delete the tracker called ``<name>``. There is no confirmation prompt, so once
+you run ``avg delete``, there is no way to reverse it.
