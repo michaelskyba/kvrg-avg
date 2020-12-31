@@ -40,3 +40,6 @@ itself is the same as ``avg list``.
 
 - ``avg delete "<name>"``:
 Delete the tracker called ``<name>``. There is no confirmation prompt; ``avg delete`` is irreversible.
+
+- ``avg push "<name>" <one or more values>``:
+Adds ``<one more values>`` as values to the tracker called ``<name>``. For example, ``avg push "soda" 2.5 2.5 1`` would add the values 2.5, 2.5, and 1 to the tracker, "soda". The "soda" tracker (assuming it has no other values) now has an average of (2.5 + 2.5 + 1)/3 = 2.
