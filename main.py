@@ -98,6 +98,20 @@ if sys.argv[1] == "delete":
 
     sys.exit(0)
 
+# You ran "avg push ..."
+if sys.argv[1] == "push":
+    # If user runs "avg push"
+    if len(sys.argv) == 2:
+        print("You need a <name> and a <one or more values> argument.")
+        sys.exit(1)
+
+    # If user runs "avg push <name>"
+    if len(sys.argv) == 3:
+        print("You need a <one or more values> argument.")
+        sys.exit(1)
+
+    sys.exit(0)
+
 # Invalid command
 print(f"'{sys.argv[1]}' is not a kvrg-avg command. See the README for a list of valid commands.")
 sys.exit(1)
