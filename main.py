@@ -48,7 +48,9 @@ if len(sys.argv) == 1 or sys.argv[1] == "list":
     # Print the tracker names and their average values, if the user has a tracker
     else:
         for tracker in tracker_names:
-            print(f"{tracker} - TODO")
+            tracker_file = open(f"{config_directory}/avg/trackers/{tracker}", "r")
+            print(f"{tracker} - {tracker_file.readlines()[1].strip()}")
+            tracker_file.close()
         sys.exit(0)
 
 # You ran "avg create ..."
