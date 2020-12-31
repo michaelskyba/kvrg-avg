@@ -77,6 +77,7 @@ if sys.argv[1] == "create":
 
     tracker_file.write(f"{description}\n0\n")
     tracker_file.close()
+
     sys.exit(0)
 
 # You ran "avg delete ..."
