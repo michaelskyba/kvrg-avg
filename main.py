@@ -88,7 +88,13 @@ if sys.argv[1] == "delete":
         sys.exit(1)
 
     # Removes the tracker file
-    os.remove(f"{config_directory}/avg/trackers/{sys.argv[2]}")
+    try:
+        os.remove(f"{config_directory}/avg/trackers/{sys.argv[2]}")
+
+    # Tracker does not exist
+    except FileNotFoundError:
+        print(f"There is no such tracker '{sys.argv[2]}'.")
+        sys.exit(1)
 
     sys.exit(0)
 
