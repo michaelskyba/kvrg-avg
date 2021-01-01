@@ -183,15 +183,17 @@ if sys.argv[1] == "get":
         print(f"Tracker with name '{sys.argv[3]}' does not exist.")
         sys.exit(1)
 
-    # User ran "avg get description <name>"
-    if sys.argv[2] == "description":
-        with open(f"{config_directory}/avg/trackers/{sys.argv[3]}", "r") as tracker_file:
-            print(tracker_file.readlines()[0].strip())
+    # Use has a valid tracker name
+    with open(f"{config_directory}/avg/trackers/{sys.argv[3]}", "r") as tracker_file:
+        tracker_lines = tracker_file.readlines()
 
-    # User ran "avg get average <name>"
-    if sys.argv[2] == "average":
-        with open(f"{config_directory}/avg/trackers/{sys.argv[3]}", "r") as tracker_file:
-            print(tracker_file.readlines()[1].strip())
+        # User ran "avg get description <name>"
+        if sys.argv[2] == "description":
+            print(tracker_lines[0].strip())
+
+        # User ran "avg get average <name>"
+        if sys.argv[2] == "average":
+            print(tracker_lines[1].strip())
 
     sys.exit(0)
 
