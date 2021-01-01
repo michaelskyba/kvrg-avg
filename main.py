@@ -74,7 +74,7 @@ if sys.argv[1] == "create":
         if len(sys.argv) > 3:
             description = sys.argv[3]
         else:
-            description = "(No description)"
+            description = "This tracker does not have a description."
 
         tracker_file.write(f"{description}\n0\n")
 
