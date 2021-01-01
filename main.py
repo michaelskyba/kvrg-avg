@@ -188,6 +188,11 @@ if sys.argv[1] == "get":
         with open(f"{config_directory}/avg/trackers/{sys.argv[3]}", "r") as tracker_file:
             print(tracker_file.readlines()[0].strip())
 
+    # User ran "avg get average <name>"
+    if sys.argv[2] == "average":
+        with open(f"{config_directory}/avg/trackers/{sys.argv[3]}", "r") as tracker_file:
+            print(tracker_file.readlines()[1].strip())
+
     sys.exit(0)
 
 # Invalid command
