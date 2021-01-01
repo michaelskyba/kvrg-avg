@@ -161,6 +161,20 @@ if sys.argv[1] == "push":
 
     sys.exit(0)
 
+# You ran "avg get ..."
+if sys.argv[1] == "get":
+    # If user runs "avg get"
+    if len(sys.argv) == 2:
+        print("You need an <attribute> argument and a <name> argument.")
+        sys.exit(1)
+
+    # If user runs "avg get <attribute>"
+    if len(sys.argv) == 3:
+        print("You need a <name> argument.")
+        sys.exit(1)
+
+    sys.exit(0)
+
 # Invalid command
 print(f"'{sys.argv[1]}' is not a kvrg-avg command. See the README for a list of valid commands.")
 sys.exit(1)
