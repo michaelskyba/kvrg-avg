@@ -183,6 +183,11 @@ if sys.argv[1] == "get":
         print(f"Tracker with name '{sys.argv[3]}' does not exist.")
         sys.exit(1)
 
+    # User ran "avg get description <name>"
+    if sys.argv[2] == "description":
+        with open(f"{config_directory}/avg/trackers/{sys.argv[3]}", "r") as tracker_file:
+            print(tracker_file.readlines()[0].strip())
+
     sys.exit(0)
 
 # Invalid command
