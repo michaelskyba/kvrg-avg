@@ -169,7 +169,7 @@ if sys.argv[1] == "get":
         sys.exit(1)
 
     # Check if user gave a valid attribute
-    if sys.argv[2] not in ["description", "name"]:
+    if sys.argv[2] not in ["description", "average"]:
         print(f"No such attribute, '{sys.argv[2]}'.")
         sys.exit(1)
 
