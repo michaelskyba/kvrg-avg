@@ -168,6 +168,11 @@ if sys.argv[1] == "get":
         print("You need an <attribute> argument and a <name> argument.")
         sys.exit(1)
 
+    # Check if user gave a valid attribute
+    if sys.argv[2] not in ["description", "name"]:
+        print(f"No such attribute, '{sys.argv[2]}'.")
+        sys.exit(1)
+
     # If user runs "avg get <attribute>"
     if len(sys.argv) == 3:
         print("You need a <name> argument.")
