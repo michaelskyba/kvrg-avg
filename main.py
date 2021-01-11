@@ -209,6 +209,15 @@ if sys.argv[1] == "info":
         print(f"Tracker with name '{sys.argv[2]}' does not exist.")
         sys.exit(1)
 
+    # Lists attributes
+    with open(f"{config_directory}/avg/trackers/{sys.argv[2]}", "r") as tracker_file:
+        tracker_lines = tracker_file.readlines()
+
+        print(f"Name: {sys.argv[2]}")
+        print(f"Description: {tracker_lines[0].strip()}")
+        print(f"Average: {tracker_lines[1].strip()}")
+
+
     sys.exit(0)
 
 # Invalid command
