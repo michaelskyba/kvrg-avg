@@ -204,6 +204,11 @@ if sys.argv[1] == "info":
         print("You need a <name> argument.")
         sys.exit(1)
 
+    # Checks if user gave a valid tracker name
+    if sys.argv[2] not in os.listdir(f"{config_directory}/avg/trackers"):
+        print(f"Tracker with name '{sys.argv[2]}' does not exist.")
+        sys.exit(1)
+
     sys.exit(0)
 
 # Invalid command
