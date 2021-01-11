@@ -51,3 +51,6 @@ Prints attribute ``<attribute>`` of tracker ``<name>``. List of valid attributes
 
 - ``avg info "<name>"``:
 Prints all attributes of tracker ``<name>``. Like ``avg list``, this is human-readable and should not be used in a script.
+
+- **Dates**
+Dates are a special type of tracker in kvrg-avg. To create a date tracker, use ``avg create "<name>" date``.
