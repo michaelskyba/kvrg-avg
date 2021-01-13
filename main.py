@@ -71,12 +71,27 @@ if sys.argv[1] == "create":
 
         # the description is the fourth argument, so the length has to be > 3 (>=4)
         # and sys.argv[3] will get the fourth argument (3rd when not including "avg")
-        if len(sys.argv) > 3:
+
+        if len(sys.argv) > 3 and sys.argv[3] != "date":
             description = sys.argv[3]
+
+        # Date tracker with description
+
+        elif len(sys.argv) > 4:
+            description = sys.argv[4]
+
+        # No description
+
         else:
             description = "This tracker does not have a description."
 
-        tracker_file.write(f"{description}\n0\n")
+        # avg create ... date
+
+        if len(sys.argv) > 3 and sys.argv[3] == "date":
+            tracker_file.write(f"{description}\n0\n{sys.argv[3]}\n")
+
+        else:
+            tracker_file.write(f"{description}\n0\n")
 
     sys.exit(0)
 
