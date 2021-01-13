@@ -30,7 +30,8 @@ Avoid ending the string with a forward slash.
 
  -  ``avg create "<name>" ["<description>"]``:
 Creates a new tracker called ``<name>`` with an optional description of
-``<description>``.
+``<description>``. If you are creating a regular tracker, do not use "date" as
+a description.
 
 - ``avg list``:
 Lists the names of trackers and their average values. This is a human-readable
