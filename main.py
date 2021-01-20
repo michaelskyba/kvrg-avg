@@ -184,7 +184,7 @@ if sys.argv[1] == "get":
         sys.exit(1)
 
     # Check if user gave a valid attribute
-    if sys.argv[2] not in ["description", "average"]:
+    if sys.argv[2] not in ["description", "average", "type"]:
         print(f"No such attribute, '{sys.argv[2]}'.")
         sys.exit(1)
 
@@ -209,6 +209,13 @@ if sys.argv[1] == "get":
         # User ran "avg get average <name>"
         if sys.argv[2] == "average":
             print(tracker_lines[1].strip())
+
+        # User ran "avg get type <name>"
+        if sys.argv[2] == "type":
+            if len(tracker_lines) > 2 and tracker_lines[2].strip() == "date":
+                print("date")
+            else:
+                print("normal")
 
     sys.exit(0)
 
