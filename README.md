@@ -49,6 +49,7 @@ Adds ``<one more values>`` as values to the tracker called ``<name>``. For examp
 Prints attribute ``<attribute>`` of tracker ``<name>``. List of valid attributes:
     - ``description``
     - ``average``
+    - `type`
 
 - ``avg info "<name>"``:
 Prints all attributes of tracker ``<name>``. Like ``avg list``, this is human-readable and should not be used in a script.
