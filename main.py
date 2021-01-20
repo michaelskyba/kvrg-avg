@@ -232,6 +232,10 @@ if sys.argv[1] == "info":
         print(f"Description: {tracker_lines[0].strip()}")
         print(f"Average: {tracker_lines[1].strip()}")
 
+        if len(tracker_lines) > 2 and tracker_lines[2].strip() == "date":
+            print("This tracker is a date tracker.")
+        else:
+            print("This is a normal tracker.")
 
     sys.exit(0)
 
