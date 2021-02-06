@@ -3,6 +3,7 @@
 import os
 import sys
 import subprocess
+import datetime
 
 try:
     # Change the next line if your config folder is not $HOME/.config
@@ -147,6 +148,50 @@ if sys.argv[1] == "push":
                     float_argument = float(argument)
                 except ValueError:
                     print(f"Value '{argument}' is not a number.")
+                    sys.exit(1)
+
+    # Makes sure all values are dates (or "now") if it's a date tracker
+    else:
+        for index, argument in enumerate(sys.argv):
+            if index > 2:
+                # Skip it if they type "now"
+                if argument == "now":
+                    continue
+
+                # Make sure the date is the right length
+                if len(argument) != 16:
+                    print(f"Value '{argument}' is invalid.")
+                    sys.exit(1)
+
+                # Test if they put slashes in the right places
+                for slash in [4, 7, 10, 13]:
+                    if argument[slash] != "/":
+                        print(f"Value '{argument}' is invalid.")
+                        sys.exit(1)
+
+                date = []
+
+                date.append(argument[0:4])
+                date.append(argument[5:7])
+                date.append(argument[8:10])
+                date.append(argument[11:13])
+                date.append(argument[14:16])
+
+                # Make sure they put integers as the date values (month, day, etc.)
+                for date_index, value in enumerate(date):
+                    try:
+                        date[date_index] = int(value)
+
+                    except ValueError:
+                        print(f"Value '{value}' is not a number.")
+                        sys.exit(1)
+
+                # Test if user's date is a real date
+                try:
+                    final_date = datetime.datetime(date[0], date[1], date[2], date[3], date[4])
+
+                except ValueError:
+                    print(f"Value '{argument}' is invalid.")
                     sys.exit(1)
 
     # Appends values to tracker file
