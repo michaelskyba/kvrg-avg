@@ -140,13 +140,14 @@ if sys.argv[1] == "push":
             tracker_type = "normal"
 
     # Makes sure all values are numbers
-    for index, argument in enumerate(sys.argv):
-        if index > 2:
-            try:
-                float_argument = float(argument)
-            except ValueError:
-                print(f"Value '{argument}' is not a number.")
-                sys.exit(1)
+    if tracker_type == "normal":
+        for index, argument in enumerate(sys.argv):
+            if index > 2:
+                try:
+                    float_argument = float(argument)
+                except ValueError:
+                    print(f"Value '{argument}' is not a number.")
+                    sys.exit(1)
 
     # Appends values to tracker file
     # A separate loop is used to avoid appending a few of the arguments before
