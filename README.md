@@ -62,8 +62,10 @@ human-readable and should not be used in a script.
 
 Dates are a special type of tracker in kvrg-avg. They measure the average
 length between entries and can try to predict when the next entry will occur.
-To create a date tracker, use ``avg create "<name>" date ["<description>"]``.
-To add an entry to a date tracker, use ``avg push``. However, instead of giving
+
+- 3.2.1 To create a date tracker, use ``avg create "<name>" date ["<description>"]``.
+
+- 3.2.2 To add an entry to a date tracker, use ``avg push``. However, instead of giving
 it a number, you can either give a date in the form "YYYY/MM/DD/HH/MM" (e.g.
 2021/01/16/00/15 for Jan 16th 2021, 12:15 AM), or the word "now", which will
 input the current date and time. For instance, ``avg push "promotion" now
