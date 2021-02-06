@@ -130,6 +130,15 @@ if sys.argv[1] == "push":
         print("You need a <one or more values> argument.")
         sys.exit(1)
 
+    # Check type of tracker
+    with open(f"{config_directory}/avg/trackers/{sys.argv[2]}", "r") as tracker_file:
+        tracker_lines = tracker_file.readlines()
+
+        if len(tracker_lines) > 2 and tracker_lines[2].strip() == "date":
+            tracker_type = "date"
+        else:
+            tracker_type = "normal"
+
     # Makes sure all values are numbers
     for index, argument in enumerate(sys.argv):
         if index > 2:
