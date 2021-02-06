@@ -139,7 +139,7 @@ if sys.argv[1] == "push":
         else:
             tracker_type = "normal"
 
-    # Makes sure all values are numbers
+    # Makes sure all values are numbers if it's a normal tracker
     if tracker_type == "normal":
         for index, argument in enumerate(sys.argv):
             if index > 2:
