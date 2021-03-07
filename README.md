@@ -69,7 +69,7 @@ length between entries and can try to predict when the next entry will occur.
 it a number, you can either give a date in the form "YYYY/MM/DD/HH/MM" (e.g.
 2021/01/16/00/15 for Jan 16th 2021, 12:15 AM), or the word "now", which will
 input the current date and time. For instance, ``avg push "promotion" now
-2020/09/10/01/11`` is valid. If the current date was September 11th 2020, 1:11
+2020/10/10/01/11`` is valid. If the current date was October 11th 2020, 1:11
 AM and the "promotion" tracker had no other entries, the average length between
 entries would now be exactly one day.
 
