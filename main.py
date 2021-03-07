@@ -200,7 +200,16 @@ if sys.argv[1] == "push":
     for index, argument in enumerate(sys.argv):
         if index > 2:
             with open(f"{config_directory}/avg/trackers/{sys.argv[2]}", "a") as tracker_file:
-                tracker_file.write(f"{argument}\n")
+                if argument == "now":
+                    # cdate -- current date
+                    cdate = datetime.datetime.now()
+                    # zfill puts in zeros accordingly - '14'.zfill(3) = '014'
+                    passed_argument = f"{cdate.year}/{str(cdate.month).zfill(2)}/{str(cdate.day).zfill(2)}/{str(cdate.hour).zfill(2)}/{str(cdate.minute).zfill(2)}"
+
+                else:
+                    passed_argument = argument
+
+                tracker_file.write(f"{passed_argument}\n")
 
     # Update average
 
