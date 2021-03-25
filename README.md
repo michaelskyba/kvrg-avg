@@ -58,6 +58,9 @@ Prints attribute ``<attribute>`` of tracker ``<name>``. List of valid attributes
 Prints all attributes of tracker ``<name>``. Like ``avg list``, this is
 human-readable and should not be used in a script.
 
+- 3.1.7 ``avg delete "<name>"``:
+Deletes tracker ``<name>``.
+
 ## 3.2 Dates
 
 Dates are a special type of tracker in kvrg-avg. They measure the average
