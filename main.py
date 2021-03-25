@@ -215,24 +215,26 @@ if sys.argv[1] == "push":
 
     # Calculate the correct average
     with open(f"{config_directory}/avg/trackers/{sys.argv[2]}", "r") as tracker_file:
-        # Add the values
-        value_sum = 0
 
         new_tracker_file_lines = tracker_file.readlines()
 
-        for index, value in enumerate(new_tracker_file_lines):
-            if index > 1:
-                value_sum += float(value)
+        if tracker_type == "normal":
+            # Add the values
+            value_sum = 0
 
-        # Get the number of lines
-        tracker_file_num_of_lines = len(new_tracker_file_lines) - 2
+            for index, value in enumerate(new_tracker_file_lines):
+                if index > 1:
+                    value_sum += float(value)
 
-        # Actual computation
-        average = value_sum * 100 / tracker_file_num_of_lines
-        average = round(average)
-        average = average / 100
+            # Get the number of lines
+            tracker_file_num_of_lines = len(new_tracker_file_lines) - 2
 
-        new_tracker_file_lines[1] = f"{average}\n"
+            # Actual computation
+            average = value_sum * 100 / tracker_file_num_of_lines
+            average = round(average)
+            average = average / 100
+
+            new_tracker_file_lines[1] = f"{average}\n"
 
     # Update the average in the file
     with open(f"{config_directory}/avg/trackers/{sys.argv[2]}", "w") as tracker_file:
