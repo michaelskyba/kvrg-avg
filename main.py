@@ -218,6 +218,10 @@ if sys.argv[1] == "push":
 
         new_tracker_file_lines = tracker_file.readlines()
 
+        # Get the number of lines
+        tracker_file_num_of_lines = len(new_tracker_file_lines)
+
+        # Normal tracker
         if tracker_type == "normal":
             # Add the values
             value_sum = 0
@@ -226,13 +230,12 @@ if sys.argv[1] == "push":
                 if index > 1:
                     value_sum += float(value)
 
-            # Get the number of lines
-            tracker_file_num_of_lines = len(new_tracker_file_lines) - 2
-
             # Actual computation
-            average = value_sum * 100 / tracker_file_num_of_lines
+            average = value_sum * 100 / (tracker_file_num_of_lines - 2)
             average = round(average)
             average = average / 100
+            # it needs to be tracker_file_num_of_lines - 2 because the
+            #   description (first line) and average (second line) aren't entries
 
             new_tracker_file_lines[1] = f"{average}\n"
 
