@@ -239,6 +239,15 @@ if sys.argv[1] == "push":
 
             new_tracker_file_lines[1] = f"{average}\n"
 
+        # Date tracker that has at least two entries
+        # You can't calculate an average interval with only one entry, because intervals = entries - 1
+        # Date trackers have a description (first line), an average (second line), and a date identifier (third line)
+        # That's three lines
+        # Finally, the entries are listed. With one entry, you have 3 + 1 = 4 lines
+        # So, to have at least two entries, you need to have more than one entry, or more than 4 lines:
+        elif tracker_file_num_of_lines > 4:
+            # Add the intervals between dates
+
     # Update the average in the file
     with open(f"{config_directory}/avg/trackers/{sys.argv[2]}", "w") as tracker_file:
         tracker_file.writelines(new_tracker_file_lines)
