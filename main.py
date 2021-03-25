@@ -196,7 +196,7 @@ if sys.argv[1] == "push":
 
     # Appends values to tracker file
     # A separate loop is used to avoid appending a few of the arguments before
-    # finding out one of them in invalid
+    #   finding out one of them is invalid
     for index, argument in enumerate(sys.argv):
         if index > 2:
             with open(f"{config_directory}/avg/trackers/{sys.argv[2]}", "a") as tracker_file:
