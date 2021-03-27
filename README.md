@@ -85,7 +85,9 @@ shows you, based on the average and the last time an entry was made,
 approximately when the next entry will occur (assuming the pattern stays the
 same, of course, you can't predict the future). ``avg get ETA`` will be in
 the form "YYYY/MM/DD/HH/MM", but everything else will be in a more
-human-readable form (e.g. "January 16th, 2008 12:30 PM").
+human-readable form (e.g. "January 16th, 2008 12:30 PM"). It's possible for the
+current, real date to be past the ETA. This means that the next entry was
+_supposed_ to happen earlier but the pattern changed.
 
 ## 4. Supported Operating Systems
 
