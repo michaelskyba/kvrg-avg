@@ -76,3 +76,15 @@ input the current date and time. For instance, ``avg push "promotion" now
 AM and the "promotion" tracker had no other entries, the average length between
 entries would now be exactly one day.
 
+## 4. Supported Operating Systems
+
+I have developed part of kvrg-avg on Arch Linux and the rest on Gentoo Linux,
+so I know it works on both of these, and I believe that it will work fine on
+most other Linux distributions (unless /usr/bin/ isn't in your $PATH of course).
+
+kvrg-avg has not been tested on any other Operating Systems, such as BSD or
+MacOS, although it should at least function with a few tweaks. The installation
+commands I wrote earlier will definitely fail on Windows. If you're using
+Windows, you're on your own (although I highly doubt that a Windows user would
+be interested in something like this).
+
