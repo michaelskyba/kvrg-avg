@@ -80,6 +80,13 @@ date tracker, you will receive the number in seconds. This is so that spaces
 and "and"s don't get in the way of your script's syntax. You can process the
 seconds however you would like.
 
+- 3.2.4 date trackers have a new "ETA" attribute. This is a date that
+shows you, based on the average and the last time an entry was made,
+approximately when the next entry will occur (assuming the pattern stays the
+same, of course, you can't predict the future). ``avg get ETA`` will be in
+the form "YYYY/MM/DD/HH/MM", but everything else will be in a more
+human-readable form (e.g. "January 16th, 2008 12:30 PM").
+
 ## 4. Supported Operating Systems
 
 I have developed part of kvrg-avg on Arch Linux and the rest on Gentoo Linux,
