@@ -73,6 +73,13 @@ input the current date and time. For instance, ``avg push "promotion" now
 AM and the "promotion" tracker had no other entries, the average length between
 entries would now be exactly one day.
 
+- 3.2.3 When using ``avg list`` or ``avg info`` on date trackers, kvrg-avg will
+show the average interval in a human-readable format (e.g. '21 minutes and 42
+seconds' instead of '1302'). However, when using ``avg get average`` on a
+date tracker, you will receive the number in seconds. This is so that spaces
+and "and"s don't get in the way of your script's syntax. You can process the
+seconds however you would like.
+
 ## 4. Supported Operating Systems
 
 I have developed part of kvrg-avg on Arch Linux and the rest on Gentoo Linux,
