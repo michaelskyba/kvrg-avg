@@ -327,7 +327,7 @@ if sys.argv[1] == "get":
         sys.exit(1)
 
     # Check if user gave a valid attribute
-    if sys.argv[2] not in ["description", "average", "type"]:
+    if sys.argv[2] not in ["description", "average", "type", "ETA"]:
         print(f"No such attribute, '{sys.argv[2]}'.")
         sys.exit(1)
 
@@ -360,6 +360,36 @@ if sys.argv[1] == "get":
             else:
                 print("normal")
 
+        if sys.argv[2] == "ETA":
+            if len(tracker_lines) > 4:
+                argument = tracker_lines[len(tracker_lines) - 1].strip()
+
+                date = []
+                date.append(argument[0:4])
+                date.append(argument[5:7])
+                date.append(argument[8:10])
+                date.append(argument[11:13])
+                date.append(argument[14:16])
+
+                # Make sure everything is an integer
+                int_date = []
+                for part in date:
+                    int_date.append(int(part))
+                date = []
+                for part in int_date:
+                    date.append(part)
+
+                latest_date = datetime.datetime(date[0], date[1], date[2], date[3], date[4])
+                average = tracker_lines[1].strip()
+                average = int(average)
+                average = datetime.timedelta(seconds=average)
+
+                print(latest_date + average)
+
+            else:
+                # No intervals
+                print("0")
+
     sys.exit(0)
 
 # You ran "avg info ..."
@@ -383,6 +413,38 @@ if sys.argv[1] == "info":
         print(f"Average: {tracker_lines[1].strip()}")
 
         if len(tracker_lines) > 2 and tracker_lines[2].strip() == "date":
+
+            # ETA
+            if len(tracker_lines) > 4:
+                argument = tracker_lines[len(tracker_lines) - 1].strip()
+
+                date = []
+                date.append(argument[0:4])
+                date.append(argument[5:7])
+                date.append(argument[8:10])
+                date.append(argument[11:13])
+                date.append(argument[14:16])
+
+                # Make sure everything is an integer
+                int_date = []
+                for part in date:
+                    int_date.append(int(part))
+                date = []
+                for part in int_date:
+                    date.append(part)
+
+                latest_date = datetime.datetime(date[0], date[1], date[2], date[3], date[4])
+                average = tracker_lines[1].strip()
+                average = int(average)
+                average = datetime.timedelta(seconds=average)
+
+                print(f"ETA: {latest_date + average}")
+
+            else:
+                # No intervals
+                print("ETA: 0")
+
+            # type
             print("This tracker is a date tracker.")
         else:
             print("This is a normal tracker.")
