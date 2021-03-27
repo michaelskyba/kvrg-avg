@@ -100,3 +100,8 @@ MacOS, although it should at least function with a few tweaks. The installation
 commands I wrote earlier will definitely fail on Windows. If you're using
 Windows, you're on your own.
 
+## 5. Bugs
+
+If you find a bug, create an "issue" on GitHub or email me
+at michaelskyab1411@gmail.com or michael@michaelskyba.xyz.
+
