@@ -85,6 +85,5 @@ most other Linux distributions (unless /usr/bin/ isn't in your $PATH of course).
 kvrg-avg has not been tested on any other Operating Systems, such as BSD or
 MacOS, although it should at least function with a few tweaks. The installation
 commands I wrote earlier will definitely fail on Windows. If you're using
-Windows, you're on your own (although I highly doubt that a Windows user would
-be interested in something like this).
+Windows, you're on your own.
 
