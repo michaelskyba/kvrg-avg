@@ -247,6 +247,70 @@ if sys.argv[1] == "push":
         # So, to have at least two entries, you need to have more than one entry, or more than 4 lines:
         elif tracker_file_num_of_lines > 4:
             # Add the intervals between dates
+            # stored as seconds
+            intervals = []
+
+            for index, value in enumerate(new_tracker_file_lines):
+                # Entries start on the fourth line, so index has to be at least 3
+                # lines - 1 is used to avoid later_date being out of range
+                if index > 2 and index < (tracker_file_num_of_lines - 1):
+                    # print(f"find the distance between {value} and {new_tracker_file_lines[index + 1]}")
+
+                    # Get the earlier date in the right format (index)
+
+                    argument = value
+
+                    date = []
+                    date.append(argument[0:4])
+                    date.append(argument[5:7])
+                    date.append(argument[8:10])
+                    date.append(argument[11:13])
+                    date.append(argument[14:16])
+
+                    # Make sure everything is an integer
+                    int_date = []
+                    for part in date:
+                        int_date.append(int(part))
+                    date = []
+                    for part in int_date:
+                        date.append(part)
+
+                    earlier_date = datetime.datetime(date[0], date[1], date[2], date[3], date[4])
+
+                    # Get the later date in the right format (index + 1)
+
+                    argument = new_tracker_file_lines[index + 1]
+
+                    date = []
+                    date.append(argument[0:4])
+                    date.append(argument[5:7])
+                    date.append(argument[8:10])
+                    date.append(argument[11:13])
+                    date.append(argument[14:16])
+
+                    # Make sure everything is an integer
+                    int_date = []
+                    for part in date:
+                        int_date.append(int(part))
+                    date = []
+                    for part in int_date:
+                        date.append(part)
+
+                    later_date = datetime.datetime(date[0], date[1], date[2], date[3], date[4])
+
+                    # Add the interval to the intervals list
+                    intervals.append((later_date - earlier_date).total_seconds())
+
+            # calculate the average of the second intervals
+            interval_sum = 0
+
+            for interval in intervals:
+                interval_sum += interval
+
+            average = interval_sum / (len(intervals))
+            average = round(average)
+
+            new_tracker_file_lines[1] = f"{average}\n"
 
     # Update the average in the file
     with open(f"{config_directory}/avg/trackers/{sys.argv[2]}", "w") as tracker_file:
