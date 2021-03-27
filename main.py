@@ -4,6 +4,7 @@ import os
 import sys
 import subprocess
 import datetime
+import math
 
 try:
     # Change the next line if your config folder is not $HOME/.config
@@ -50,7 +51,57 @@ if len(sys.argv) == 1 or sys.argv[1] == "list":
     else:
         for tracker in tracker_names:
             with open(f"{config_directory}/avg/trackers/{tracker}", "r") as tracker_file:
-                print(f"{tracker} - {tracker_file.readlines()[1].strip()}")
+                tracker_lines = tracker_file.readlines()
+
+                if len(tracker_lines) > 2 and tracker_lines[2].strip() == "date":
+                    # convert to human-readable
+                    seconds = int(tracker_lines[1].strip())
+
+                    if seconds == 0:
+                        output = seconds
+                        print(f"{tracker} - {output}")
+                        continue
+
+                    minutes = math.floor(seconds / 60)
+
+                    if minutes == 0:
+                        output = seconds
+                        print(f"{tracker} - {output}")
+                        continue
+
+                    hours = math.floor(minutes / 60)
+
+                    if hours == 0:
+                        output = f"{minutes} minutes and {seconds - minutes * 60} seconds"
+                        print(f"{tracker} - {output}")
+                        continue
+
+                    days = math.floor(hours / 24)
+
+                    if days == 0:
+                        output = f"{hours} hours and {minutes - hours * 60} minutes"
+                        print(f"{tracker} - {output}")
+                        continue
+
+                    months = math.floor(days / 30)
+
+                    if months == 0:
+                        output = f"{days} days and {hours - days * 24} hours"
+                        print(f"{tracker} - {output}")
+                        continue
+
+                    years = math.floor(months / 12)
+
+                    if years == 0:
+                        output = f"{months} months and {days - months * 30} days"
+                        print(f"{tracker} - {output}")
+                        continue
+
+                    output = f"{years} years and {months - years * 12} months"
+                    print(f"{tracker} - {output}")
+
+                else:
+                    print(f"{tracker} - {tracker_lines[1].strip()}")
         sys.exit(0)
 
 # You ran "avg create ..."
