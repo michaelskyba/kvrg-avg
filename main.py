@@ -310,6 +310,7 @@ if sys.argv[1] == "push":
             average = interval_sum / (len(intervals))
             average = round(average)
 
+            # write to tracker file
             new_tracker_file_lines[1] = f"{average}\n"
 
     # Update the average in the file
