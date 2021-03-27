@@ -103,5 +103,5 @@ Windows, you're on your own.
 ## 5. Bugs
 
 If you find a bug, create an "issue" on GitHub or email me
-at michaelskyab1411@gmail.com or michael@michaelskyba.xyz.
+at michaelskyba1411@gmail.com or michael@michaelskyba.xyz.
 
