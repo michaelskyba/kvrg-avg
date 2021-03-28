@@ -461,12 +461,61 @@ if sys.argv[1] == "info":
 
         print(f"Name: {sys.argv[2]}")
         print(f"Description: {tracker_lines[0].strip()}")
-        print(f"Average: {tracker_lines[1].strip()}")
 
         if len(tracker_lines) > 2 and tracker_lines[2].strip() == "date":
-
-            # ETA
             if len(tracker_lines) > 4:
+                # average
+
+                # convert to human-readable
+                print_average = True
+
+                seconds = int(tracker_lines[1].strip())
+
+                if seconds == 0 and print_average:
+                    output = seconds
+                    print(f"Average: {output}")
+                    print_average = False
+
+                minutes = math.floor(seconds / 60)
+
+                if minutes == 0 and print_average:
+                    output = seconds
+                    print(f"Average: {output}")
+                    print_average = False
+
+                hours = math.floor(minutes / 60)
+
+                if hours == 0 and print_average:
+                    output = f"{minutes} minutes and {seconds - minutes * 60} seconds"
+                    print(f"Average: {output}")
+                    print_average = False
+
+                days = math.floor(hours / 24)
+
+                if days == 0 and print_average:
+                    output = f"{hours} hours and {minutes - hours * 60} minutes"
+                    print(f"Average: {output}")
+                    print_average = False
+
+                months = math.floor(days / 30)
+
+                if months == 0 and print_average:
+                    output = f"{days} days and {hours - days * 24} hours"
+                    print(f"Average: {output}")
+                    print_average = False
+
+                years = math.floor(months / 12)
+
+                if years == 0 and print_average:
+                    output = f"{months} months and {days - months * 30} days"
+                    print(f"Average: {output}")
+                    print_average = False
+
+                output = f"{years} years and {months - years * 12} months"
+                if print_average:
+                    print(f"Average: {output}")
+
+                # ETA
                 argument = tracker_lines[len(tracker_lines) - 1].strip()
 
                 date = []
@@ -493,11 +542,13 @@ if sys.argv[1] == "info":
 
             else:
                 # No intervals
+                print("Average: 0")
                 print("ETA: 0")
 
             # type
             print("This tracker is a date tracker.")
         else:
+            print(f"Average: {tracker_lines[1].strip()}")
             print("This is a normal tracker.")
 
     sys.exit(0)
