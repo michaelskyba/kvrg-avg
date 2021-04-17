@@ -63,51 +63,82 @@ if len(sys.argv) == 1 or sys.argv[1] == "list":
                 tracker_lines = tracker_file.readlines()
 
                 if len(tracker_lines) > 2 and tracker_lines[2].strip() == "date":
-                    # convert to human-readable
-                    seconds = int(tracker_lines[1].strip())
+                    if not date_list_ETA_set:
+                        # convert to human-readable
+                        seconds = int(tracker_lines[1].strip())
 
-                    if seconds == 0:
-                        output = seconds
+                        if seconds == 0:
+                            output = seconds
+                            print(f"{tracker} - {output}")
+                            continue
+
+                        minutes = math.floor(seconds / 60)
+
+                        if minutes == 0:
+                            output = seconds
+                            print(f"{tracker} - {output}")
+                            continue
+
+                        hours = math.floor(minutes / 60)
+
+                        if hours == 0:
+                            output = f"{minutes} minutes and {seconds - minutes * 60} seconds"
+                            print(f"{tracker} - {output}")
+                            continue
+
+                        days = math.floor(hours / 24)
+
+                        if days == 0:
+                            output = f"{hours} hours and {minutes - hours * 60} minutes"
+                            print(f"{tracker} - {output}")
+                            continue
+
+                        months = math.floor(days / 30)
+
+                        if months == 0:
+                            output = f"{days} days and {hours - days * 24} hours"
+                            print(f"{tracker} - {output}")
+                            continue
+
+                        years = math.floor(months / 12)
+
+                        if years == 0:
+                            output = f"{months} months and {days - months * 30} days"
+                            print(f"{tracker} - {output}")
+                            continue
+
+                        output = f"{years} years and {months - years * 12} months"
                         print(f"{tracker} - {output}")
-                        continue
 
-                    minutes = math.floor(seconds / 60)
+                    elif len(tracker_lines) > 4:
+                        # we want the ETA
+                        argument = tracker_lines[len(tracker_lines) - 1].strip()
 
-                    if minutes == 0:
-                        output = seconds
-                        print(f"{tracker} - {output}")
-                        continue
+                        date = []
+                        date.append(argument[0:4])
+                        date.append(argument[5:7])
+                        date.append(argument[8:10])
+                        date.append(argument[11:13])
+                        date.append(argument[14:16])
 
-                    hours = math.floor(minutes / 60)
+                        # Make sure everything is an integer
+                        int_date = []
+                        for part in date:
+                            int_date.append(int(part))
+                        date = []
+                        for part in int_date:
+                            date.append(part)
 
-                    if hours == 0:
-                        output = f"{minutes} minutes and {seconds - minutes * 60} seconds"
-                        print(f"{tracker} - {output}")
-                        continue
+                        latest_date = datetime.datetime(date[0], date[1], date[2], date[3], date[4])
+                        average = tracker_lines[1].strip()
+                        average = int(average)
+                        average = datetime.timedelta(seconds=average)
 
-                    days = math.floor(hours / 24)
+                        print(f"{tracker} - {latest_date + average}")
 
-                    if days == 0:
-                        output = f"{hours} hours and {minutes - hours * 60} minutes"
-                        print(f"{tracker} - {output}")
-                        continue
-
-                    months = math.floor(days / 30)
-
-                    if months == 0:
-                        output = f"{days} days and {hours - days * 24} hours"
-                        print(f"{tracker} - {output}")
-                        continue
-
-                    years = math.floor(months / 12)
-
-                    if years == 0:
-                        output = f"{months} months and {days - months * 30} days"
-                        print(f"{tracker} - {output}")
-                        continue
-
-                    output = f"{years} years and {months - years * 12} months"
-                    print(f"{tracker} - {output}")
+                    else:
+                        # not enough intervals for an ETA
+                        print(f"{tracker} - 0")
 
                 else:
                     print(f"{tracker} - {tracker_lines[1].strip()}")
