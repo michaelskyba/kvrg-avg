@@ -10,7 +10,7 @@ sudo chmod +x /usr/bin/avg
 ```
 
 ## 2. Configuration
-## 2.2 Disclaimer
+## 2.1 Disclaimer
 By default, kvrg-avg will use files in $HOME/.config/avg. If your
 config folder is somewhere else, you will need to open /usr/bin/avg
 and edit the directory.
