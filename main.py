@@ -32,6 +32,15 @@ if not os.path.isdir(config_directory):
 if not os.path.isdir("f{config_directory}/avg/trackers"):
     subprocess.run(["mkdir", "-p", f"{config_directory}/avg/trackers"])
 
+# config for either average (default) or ETA for date trackers in avg list
+
+date_list_ETA_set = False
+
+if os.path.isfile(f"{config_directory}/avg/config"):
+    with open(f"{config_directory}/avg/config", "r") as config_file:
+        if "ETA\n" in config_file.readlines():
+            date_list_ETA_set = True
+
 # Starts checking for command-line arguments
 
 # You ran "avg" without any extra arguments, or you ran "avg list"
