@@ -5,17 +5,17 @@ A command line utility written in Python for keeping track of central values
 
 ## 1. Installation
 ```bash
-sudo curl https://raw.githubusercontent.com/michaelskyba/kvrg-avg/master/main.py -o /usr/bin/avg
-sudo chmod +x /usr/bin/avg
+sudo curl https://raw.githubusercontent.com/michaelskyba/kvrg-avg/master/main.py -o /usr/local/bin/avg
+sudo chmod +x /usr/local/bin/avg
 ```
 
 ## 2. Configuration
 ## 2.1 Disclaimer
 By default, kvrg-avg will use files in $HOME/.config/avg. If your
-config folder is somewhere else, you will need to open /usr/bin/avg
+config folder is somewhere else, you will need to open /usr/local/bin/avg
 and edit the directory.
 ```bash
-sudo -e /usr/bin/avg
+sudo -e /usr/local/bin/avg
 ```
 Change
 ```python
@@ -103,7 +103,7 @@ changed.
 
 I have developed part of kvrg-avg on Arch Linux and the rest on Gentoo Linux,
 so I know it works on both of these, and I believe that it will work fine on
-most other Linux distributions (unless /usr/bin/ isn't in your $PATH of course).
+most other Linux distributions (unless /usr/local/bin/ isn't in your $PATH of course).
 
 kvrg-avg has not been tested on any other Operating Systems, such as BSD or
 MacOS, although it should at least function with a few tweaks. The installation
