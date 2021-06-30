@@ -103,7 +103,7 @@ changed.
 
 I have developed part of kvrg-avg on Arch Linux and the rest on Gentoo Linux,
 so I know it works on both of these, and I believe that it will work fine on
-most other Linux distributions (unless /usr/local/bin/ isn't in your $PATH of course).
+most other Linux distributions (unless /usr/local/bin/ isn't in your $PATH, of course).
 
 kvrg-avg has not been tested on any other Operating Systems, such as BSD or
 MacOS, although it should at least function with a few tweaks. The installation
