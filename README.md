@@ -115,3 +115,6 @@ Windows, you're on your own.
 If you find a bug, create an "issue" on GitHub or email me
 at michaelskyba1411@gmail.com or michael@michaelskyba.xyz.
 
+## 6. Screenshot
+
+![Screenshot](https://michaelskyba.github.io/kvrg-avg.png)
