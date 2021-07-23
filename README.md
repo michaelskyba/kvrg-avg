@@ -5,8 +5,8 @@ A command line utility written in Python for keeping track of central values
 
 ## 1. Installation
 ```bash
-sudo curl https://raw.githubusercontent.com/michaelskyba/kvrg-avg/master/main.py -o /usr/local/bin/avg
-sudo chmod +x /usr/local/bin/avg
+git clone https://github.com/michaelskyba/kvrg-avg
+su -c "cp kvrg-avg/main.py /usr/local/bin/"
 ```
 
 ## 2. Configuration
