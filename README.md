@@ -4,7 +4,7 @@
 A command line utility written in Python for keeping track of central values
 
 ## 1. Installation
-```bash
+```sh
 git clone https://github.com/michaelskyba/kvrg-avg
 su -c "cp kvrg-avg/main.py /usr/local/bin/"
 ```
@@ -14,9 +14,7 @@ su -c "cp kvrg-avg/main.py /usr/local/bin/"
 By default, kvrg-avg will use files in $HOME/.config/avg. If your
 config folder is somewhere else, you will need to open /usr/local/bin/avg
 and edit the directory.
-```bash
-sudo -e /usr/local/bin/avg
-```
+
 Change
 ```python
 config_directory = f"{os.environ['HOME']}/.config"
