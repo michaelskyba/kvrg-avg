@@ -6,7 +6,7 @@ A command line utility written in Python for keeping track of central values
 ## 1. Installation
 ```sh
 git clone https://github.com/michaelskyba/kvrg-avg
-su -c "cp kvrg-avg/main.py /usr/local/bin/"
+su -c "cp kvrg-avg/main.py /usr/local/bin/avg"
 ```
 
 ## 2. Configuration
