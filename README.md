@@ -25,7 +25,7 @@ config_directory = "<your config directory>"
 ```
 Avoid ending the string with a forward slash.
 ## 2.2 Config file
-The config file will be "<your config directory>/config", so "$HOME/.config/avg/config" by default.
+The config file will be "(your config directory)/config", so "$HOME/.config/avg/config" by default.
 To set an option, just add the name of the option as a line in the file.
 
 - 2.2.1 ``ETA``:
