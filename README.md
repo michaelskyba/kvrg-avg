@@ -74,10 +74,11 @@ length between entries and can try to predict when the next entry will occur.
 - 3.2.2 To add an entry to a date tracker, use ``avg push``. However, instead of giving
 it a number, you can either give a date in the form "YYYY/MM/DD/HH/MM" (e.g.
 2021/01/16/00/15 for Jan 16th 2021, 12:15 AM), or the word "now", which will
-input the current date and time. For instance, ``avg push "promotion" now
-2020/10/10/01/11`` is valid. If the current date was October 11th 2020, 1:11
+input the current date and time. For instance, ``avg push "promotion"
+2020/10/10/01/11 now`` is valid. If the current date was October 11th 2020, 1:11
 AM and the "promotion" tracker had no other entries, the average length between
-entries would now be exactly one day.
+entries would now be exactly one day. As I showed in the example, you should always
+push dates from earliest to latest.
 
 - 3.2.3 When using ``avg list`` or ``avg info`` on date trackers, kvrg-avg will
 show the average interval in a human-readable format (e.g. '21 minutes and 42
