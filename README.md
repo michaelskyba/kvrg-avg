@@ -116,4 +116,4 @@ at michaelskyba1411@gmail.com or michael@michaelskyba.xyz.
 
 ## 6. Screenshot
 
-![Screenshot](https://michaelskyba.github.io/kvrg-avg.png)
+![Screenshot](https://michaelskyba.github.io/assets/kvrg-avg.png)
